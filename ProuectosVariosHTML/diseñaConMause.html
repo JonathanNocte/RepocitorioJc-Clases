@@ -1,0 +1,97 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+    var pantalla = document.querySelector('canvas');
+    var pincel = pantalla.getContext('2d');
+
+    pincel.fillStyle = 'grey';
+    pincel.fillRect(0, 0, 600, 400);
+
+    var puedoDibujar = false;
+    var colores = ["blue","red","green"];
+    var seleccionarColor = 0;
+
+    pincel.fillStyle = 'blue';
+    pincel.fillRect(0,0,50,50)
+
+    pincel.fillStyle = 'red';
+    pincel.fillRect(50, 0,50,50)
+
+    pincel.fillStyle = 'green';
+    pincel.fillRect(100, 0,50,50)
+
+    function dibujarCirculo(evento) {
+
+        if(puedoDibujar) {
+            var x = evento.pageX - pantalla.offsetLeft;
+            var y = evento.pageY - pantalla.offsetTop;
+            pincel.fillStyle = colores [seleccionarColor];
+            pincel.beginPath();
+            pincel.arc(x, y, 5, 0, 2 * 3.14);
+            pincel.fill();
+        }
+
+    }
+
+    pantalla.onmousemove = dibujarCirculo;
+
+    function habilitarDibujar() {
+
+        puedoDibujar = true;
+    }
+
+    function deshabilitarDibujar() {
+
+        puedoDibujar = false;
+    }
+
+    function cambiarColorAzul (evento) {
+        var x = evento.pageX - pantalla.offsetLeft;
+        var y = evento.pageY - pantalla.offsetTop;
+        if (x >= 0 &&
+            x < 50 &&
+            (y >= 0) &&
+            (y < 50)) {
+
+            seleccionarColor = 0;
+        
+           }
+        }   
+
+    function cambiarColorRojo (evento) {
+        var x = evento.pageX - pantalla.offsetLeft;
+        var y = evento.pageY - pantalla.offsetTop;
+        if ((x >= 50) &&
+            (x < 100) &&
+            (y >= 50) &&
+            (y < 100)) {
+            seleccionarColor = 1;
+        return = seleccionarColor
+            }
+        }
+
+     function cambiarColorVerde (evento) {
+           var x = evento.pageX - pantalla.offsetLeft;
+           var y = evento.pageY - pantalla.offsetTop;
+        if ((x >= 100) &&
+            (x < 150) &&
+            (y >= 100) &&
+            (y < 150)){
+            seleccionarColor = 2;
+        return = seleccionarColor
+           }       
+        }   
+
+           
+    pantalla.onclick = cambiarColorAzul; 
+    pantalla.onclick = cambiarColorRojo; 
+    pantalla.onclick = cambiarColorVerde; 
+
+    pantalla.onmousedown = habilitarDibujar;
+
+    pantalla.onmouseup = deshabilitarDibujar;
+
+
+
+
+</script>

@@ -1,0 +1,60 @@
+<canvas width="600" height="400"> </canvas>
+
+<script>
+   var pantalla = document.querySelector("canvas");
+   var pincel = pantalla.getContext("2d");    	
+
+   var palabraSecreta = 8//["nintendo","xbox","madre","padre","arte","caravana","programa","diseño","piratas","hermano"];
+   var i = 0;
+ 
+   var palabraElegida
+  
+    var trayectoria = 250
+
+      
+    letras()
+
+   function lineasBase(y) {
+      var y2 = y + 30;
+      pincel.fillStyle = "black";
+      pincel.beginPath();
+      pincel.moveTo(y,350);
+      pincel.lineTo(y2,350);
+      pincel.lineTo(y2,352);
+      pincel.lineTo(y,352);
+      pincel.fill();
+
+     
+   } 
+
+   function letras() {
+      for (var a = 0; a <= palabraSecreta; a++) {
+          lineasBase (trayectoria)
+
+          //trayectoria = trayectoria + 40 
+
+      else( a > palabraSecreta)
+
+      break;
+   }
+            
+   }
+
+   //letras ();
+
+   //function elegirpalabra () {
+      //palabraElegida = Math.round(Math.random()*palabraSecreta.length)}
+
+   //Ahorcado =false
+
+
+    //function falloEnLetra() {
+        //i++;
+        //if(i >= animacion.length){
+        //  i = 0
+        //}
+    //return false;
+    //}
+
+
+</script>

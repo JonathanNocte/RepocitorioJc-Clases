@@ -1,0 +1,73 @@
+<h2> Tirador de dados <h2>
+
+<button> Tirada inical pathfinder</button>
+<script>
+	
+	var caracteristca = ["Fuerza","Destreza","constitucion","Inteligencia","Sabiduria","Carisma"];
+	var resultado;
+	var primero
+	var segundo
+	var tercero
+	var cuarto
+	var valor = [primero, segundo,tercero ,cuarto ];
+	var i; 
+
+	function saltarlinea() {
+
+         document.write("<br>");
+    }
+
+    function imprimir (frase) {
+
+        saltarlinea();
+        saltarlinea();
+        saltarlinea();
+        document.write(frase);
+        saltarlinea();
+        saltarlinea();
+        saltarlinea();
+    }
+    var valorD6
+    function DadoD6 () {
+    	
+    	resultadoD6 = Math.round(Math.random()*6);
+    	valorD6 = resultadoD6;
+    	return;
+   
+    }
+
+    function mostrarResultado (a){
+    	imprimir ("Fuerza : " + resultado);
+
+    }
+    function tirar () {
+        var contadorX = 0;
+    	while (contadorX < valor.length){
+    		i = contadorX;
+    		DadoD6 () 
+    		contadorX++;
+    		if (contadorX >= valor.length){
+    			break;
+    		}
+    	valor[i] = valorD6;
+    	return;
+    	}	
+    		var sumarvalores = (primero+segundo+tecero+cuarto);
+
+    		resultado = sumarvalores;
+    		
+    			
+    }
+
+
+       tirar ();
+
+
+    var button = document.querySelector("button");
+    
+    button.onclick = mostrarResultado (0);
+
+
+    
+
+</script>
